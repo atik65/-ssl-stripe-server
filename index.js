@@ -63,8 +63,8 @@ app.post("/create-checkout-session", async (req, res) => {
       },
 
       mode: "payment",
-      success_url: "http://localhost:3000/",
-      cancel_url: "http://localhost:3000/",
+      success_url: "https://stripe-sslcommerz-paymnet-gateway.netlify.app/",
+      cancel_url: "https://stripe-sslcommerz-paymnet-gateway.netlify.app/",
     });
 
     // res.redirect(303, session.url);
@@ -125,19 +125,27 @@ app.post("/sslcommerz", (req, res) => {
 });
 
 app.post("/success", async (req, res) => {
-  res.redirect(`http://localhost:3000/success/${req.body.tran_id}`);
+  res.redirect(
+    `https://stripe-sslcommerz-paymnet-gateway.netlify.app/success/${req.body.tran_id}`
+  );
 });
 
 app.post("/fail", (req, res) => {
-  res.redirect(`http://localhost:3000/fail/${req.body.tran_id}`);
+  res.redirect(
+    `https://stripe-sslcommerz-paymnet-gateway.netlify.app/fail/${req.body.tran_id}`
+  );
 });
 
 app.post("/cancel", (req, res) => {
-  res.redirect(`http://localhost:3000/cancel/${req.body.tran_id}`);
+  res.redirect(
+    `https://stripe-sslcommerz-paymnet-gateway.netlify.app/cancel/${req.body.tran_id}`
+  );
 });
 
 app.post("/ipin", (req, res) => {
-  res.redirect(`http://localhost:3000/ipin/${req.body.tran_id}`);
+  res.redirect(
+    `https://stripe-sslcommerz-paymnet-gateway.netlify.app/ipin/${req.body.tran_id}`
+  );
 });
 
 // app listening api
