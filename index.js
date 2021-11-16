@@ -1,14 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 const { v4: uuid } = require("uuid");
-const stripe = require("stripe")(
-  "sk_test_51Jvj40IM4yObAqq7gPHbovUx92IsguPSftRh3Ayd1g2t66JbXYlU04Rt2GvYyyxQXCXEdLdTAtbrJZOi5G4TE5B700SAn4lXx6"
-);
+const stripe = require("stripe")(process.env.stripeKey);
 const app = express();
 
 const SSLCommerzPayment = require("sslcommerz-lts");
-const store_id = "abcco619207ad9f014";
-const store_passwd = "abcco619207ad9f014@ssl";
+const store_id = process.env.sslStoreId;
+const store_passwd = process.env.sslStorePass;
 const is_live = false; //true for live, false for sandbox
 
 app.use(cors());
